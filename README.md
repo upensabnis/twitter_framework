@@ -1,23 +1,25 @@
-# Get_Tweets
+# Twitter Data Collection Framework
 
-The start of a program written by Prof. Ken Anderson at the University
-of Colorado Boulder to retrieve 200 of the most recent tweets of
-a given Twitter user.
+February 2015
 
-## Running the Program
+This is the start of a framework for accessing data from Twitter's
+REST and Streaming APIs. It comes with several example applications
+that demonstrate how to make use of the framework.
 
-To use the program, type:
-
-`ruby get_tweets.rb <username>`
+This framework was created by Prof. Ken Anderson of the Department of
+Computer Science at the University of Colorado Boulder.
 
 ## Installation
 
-To install the program:
+To install the framework:
 
 1. Download the archive.
-2. cd into get_tweets
+2. cd into twitter_framework
 3. bundle install
 4. There is no step 4.
+
+You can now try out some of the command-line programs that come with
+the framework such as get_tweets.rb or find_tweets.rb.
 
 ## Assumptions
 
