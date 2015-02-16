@@ -1,4 +1,4 @@
-require_relative 'Rates'
+require_relative 'RateLimits'
 
 require 'trollop'
 
@@ -56,7 +56,7 @@ if __FILE__ == $0
   data   = { endpoint: input[:endpoint], props: input[:props] }
 
   args     = { params: params, data: data }
-  twitter  = Rates.new(args)
+  twitter  = RateLimits.new(args)
 
   twitter.collect do |info|
     puts info.inspect

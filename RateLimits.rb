@@ -1,13 +1,13 @@
 require_relative 'TwitterRequest'
 
-class Rates < TwitterRequest
+class RateLimits < TwitterRequest
 
   def initialize(args)
     super args
   end
 
   def request_name
-    "Rates"
+    "RateLimits"
   end
 
   def url
