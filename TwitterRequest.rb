@@ -1,6 +1,7 @@
 require 'bundler/setup'
 
 require_relative 'Logging'
+require_relative 'Params'
 require_relative 'Properties'
 require_relative 'Rates'
 
@@ -12,10 +13,9 @@ require 'typhoeus'
 class TwitterRequest
 
   include TwitterLog
+  include TwitterParams
   include TwitterProperties
   include TwitterRates
-
-  @@parser = URI::Parser.new
 
   attr_reader :data, :log, :params, :props
 
@@ -30,13 +30,6 @@ class TwitterRequest
     raise NotImplementedError, "No URL Specified for the Request"
   end
 
-  def error(response)
-    puts "FAILURE      : #{Time.now}"
-    puts "Response Code: #{response.code}"
-    puts "Response Info: #{response.status_message}"
-    raise RuntimeError, "TwitterRequest Failed: #{response.code}"
-  end
-
   def request_name
     raise NotImplementedError, "Request Name Not Specified"
   end
@@ -49,20 +42,11 @@ class TwitterRequest
     raise NotImplementedError, "Success Handler Not Specified"
   end
 
-  def prepare(param)
-    @@parser.escape(param.to_s, /[^a-z0-9\-\.\_\~]/i)
-  end
-
-  def include_param?(param)
-    return true
-  end
-
-  def escaped_params
-    result = {}
-    params.keys.each do |key|
-      result[key] = prepare(params[key]) if include_param?(key)
-    end
-    result
+  def error(response)
+    puts "FAILURE      : #{Time.now}"
+    puts "Response Code: #{response.code}"
+    puts "Response Info: #{response.status_message}"
+    raise RuntimeError, "TwitterRequest Failed: #{response.code}"
   end
 
   def authorization
@@ -82,14 +66,6 @@ class TwitterRequest
 
     options[:params]  = request_params
     options
-  end
-
-  def display_params
-    result = []
-    escaped_params.keys.each do |key|
-      result << "#{key}=#{escaped_params[key]}"  if include_param?(key)
-    end
-    result.join("&")
   end
 
   def make_request
@@ -113,7 +89,8 @@ class TwitterRequest
   end
 
   public    :collect
-  protected :error, :include_param?, :make_request, :success, :url
-  private   :authorization, :escaped_params, :options, :prepare
+  protected :error,         :make_request,     :request_name
+  protected :success,       :twitter_endpoint, :url
+  private   :authorization, :options
 
 end
