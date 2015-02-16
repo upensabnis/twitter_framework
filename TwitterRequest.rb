@@ -89,8 +89,7 @@ class TwitterRequest
   end
 
   public    :collect
-  protected :error,         :make_request,     :request_name
-  protected :success,       :twitter_endpoint, :url
-  private   :authorization, :options
+  protected :authorization, :error,   :make_request,     :options
+  protected :request_name,  :success, :twitter_endpoint, :url
 
 end
