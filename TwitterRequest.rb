@@ -1,6 +1,7 @@
 require 'bundler/setup'
 
 require_relative 'Logging'
+require_relative 'Properties'
 
 require 'json'
 require 'simple_oauth'
@@ -10,6 +11,7 @@ require 'typhoeus'
 class TwitterRequest
 
   include TwitterLog
+  include TwitterProperties
 
   @@parser = URI::Parser.new
   @@rates  = {}
@@ -21,19 +23,6 @@ class TwitterRequest
     @data     = args.fetch(:data)
     @log      = args[:log] || default_logger
     @props    = load_props(@data[:props])
-  end
-
-  def load_props(input)
-    input = File.open(input)
-    convert_props(JSON.parse(input.read))
-  end
-
-  def convert_props(input)
-    props = {}
-    input.keys.each do |key|
-      props[key.to_sym] = input[key]
-    end
-    props
   end
 
   def url
