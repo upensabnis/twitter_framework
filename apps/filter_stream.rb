@@ -1,4 +1,4 @@
-require_relative 'FilterTrackStream'
+require_relative '../requests/FilterTrackStream'
 
 require 'trollop'
 

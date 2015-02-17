@@ -1,4 +1,4 @@
-require_relative 'CursorRequest'
+require_relative '../core/CursorRequest'
 
 class FollowersIds < CursorRequest
 

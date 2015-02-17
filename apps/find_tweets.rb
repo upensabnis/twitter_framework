@@ -1,4 +1,4 @@
-require_relative 'Search'
+require_relative '../requests/Search'
 
 require 'trollop'
 

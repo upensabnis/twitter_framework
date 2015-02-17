@@ -1,4 +1,4 @@
-require_relative 'MaxIdRequest'
+require_relative '../core/MaxIdRequest'
 
 class Search < MaxIdRequest
 

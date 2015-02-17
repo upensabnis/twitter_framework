@@ -1,4 +1,5 @@
 require 'simple_oauth'
+require 'time'
 require 'typhoeus'
 
 module TwitterRates

@@ -1,12 +1,12 @@
-require_relative 'FollowersIds'
+require_relative '../requests/FriendsIds'
 
 require 'trollop'
 
 USAGE = %Q{
-get_friends: Retrieve user ids that follow a given Twitter screen_name.
+get_friends: Retrieve user ids followed by a given Twitter screen_name.
 
 Usage:
-  ruby get_followers.rb <options> <screen_name>
+  ruby get_friends.rb <options> <screen_name>
 
   <screen_name>: A Twitter screen_name.
 
@@ -18,7 +18,7 @@ def parse_command_line
   options = {type: :string, required: true}
 
   opts = Trollop::options do
-    version "get_followers 0.1 (c) 2015 Kenneth M. Anderson"
+    version "get_friends 0.1 (c) 2015 Kenneth M. Anderson"
     banner USAGE
     opt :props, "OAuth Properties File", options
   end
@@ -41,11 +41,11 @@ if __FILE__ == $0
 
   args     = { params: params, data: data }
 
-  twitter = FollowersIds.new(args)
+  twitter = FriendsIds.new(args)
 
-  puts "Collecting the ids of the Twitter users that follow '#{input[:screen_name]}'"
+  puts "Collecting the ids of the Twitter users followed by '#{input[:screen_name]}'"
 
-  File.open('follower_ids.txt', 'w') do |f|
+  File.open('friend_ids.txt', 'w') do |f|
     twitter.collect do |ids|
       ids.each do |id|
         f.puts "#{id}\n"

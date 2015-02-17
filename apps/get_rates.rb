@@ -1,4 +1,4 @@
-require_relative 'RateLimits'
+require_relative '../requests/RateLimits'
 
 require 'trollop'
 

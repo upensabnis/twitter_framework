@@ -1,4 +1,4 @@
-require_relative 'PublicStream'
+require_relative '../requests/PublicStream'
 
 require 'trollop'
 

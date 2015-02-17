@@ -1,4 +1,4 @@
-require_relative 'StreamingTwitterRequest'
+require_relative '../core/StreamingTwitterRequest'
 
 class PublicStream < StreamingTwitterRequest
 

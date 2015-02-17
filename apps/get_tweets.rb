@@ -1,4 +1,4 @@
-require_relative 'Timeline'
+require_relative '../requests/Timeline'
 
 require 'trollop'
 

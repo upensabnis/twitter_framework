@@ -1,4 +1,4 @@
-require_relative 'TwitterRequest'
+require_relative '../core/TwitterRequest'
 
 class RateLimits < TwitterRequest
 

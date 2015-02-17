@@ -1,13 +1,12 @@
 require 'bundler/setup'
 
-require_relative 'Logging'
-require_relative 'Params'
-require_relative 'Properties'
-require_relative 'Rates'
+require_relative '../helpers/Logging'
+require_relative '../helpers/Params'
+require_relative '../helpers/Properties'
+require_relative '../helpers/Rates'
 
 require 'json'
 require 'simple_oauth'
-require 'time'
 require 'typhoeus'
 
 class TwitterRequest
