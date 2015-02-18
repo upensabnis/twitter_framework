@@ -3,7 +3,7 @@ require_relative '../requests/TrendsPlace'
 require 'trollop'
 
 USAGE = %Q{
-get_tweets: Retrieve tweets for a given Twitter screen_name.
+get_trends: Retrieve trending terms for a given Where On Earth ID.
 
 Usage:
   ruby get_tweets.rb <options> <WOEID>
@@ -18,7 +18,7 @@ def parse_command_line
   options = {type: :string, required: true}
 
   opts = Trollop::options do
-    version "get_trends 0.1 (c) 2015 Brett M. Shouse"
+    version "get_trends 0.1 (c) 2015 Kenneth M. Anderson @Hack Brett M. Shouse"
     banner USAGE
     opt :props, "OAuth Properties File", options
   end
