@@ -6,9 +6,11 @@ USAGE = %Q{
 get_trends: Retrieve trending terms for a given Where On Earth ID.
 
 Usage:
-  ruby get_tweets.rb <options> <WOEID>
+  ruby get_trends.rb <options> <WOEID>
 
   <WOEID>: A Where On Earth ID (http://developer.yahoo.com/geo/geoplanet/)
+
+  Example: 23424977 is the WOEID for the United States
 
 The following options are supported:
 }

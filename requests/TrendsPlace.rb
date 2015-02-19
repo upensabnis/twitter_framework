@@ -25,6 +25,13 @@ class TrendsPlace < TwitterRequest
     yield trends
   end
 
+  def error(response)
+    if response.code == 404
+      puts "No trending topic information for this Where On Earth ID."
+      return
+    end
+    super
+  end
 
 end
 
