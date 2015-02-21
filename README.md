@@ -45,7 +45,7 @@ To get these values, head to <https://dev.twitter.com/> and click
 on the link that says *Manage Your Apps*.
 
 
-## Have Fun!
+## Have Fun!!!!!!!!
 
 You can now try out some of the command-line programs that come with
 the framework such as get_tweets.rb or find_tweets.rb. Most of these
