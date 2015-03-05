@@ -1,3 +1,4 @@
+#Author - Upendra Sabnis
 require_relative '../core/TwitterRequest'
 
 class SearchGeo < TwitterRequest
